@@ -1,0 +1,4 @@
+.highlighted-text {
+    background-color: rgb(197, 197, 197);
+    transition: background-color 1.0s ease; /* This adds a smooth transition effect */
+  }
