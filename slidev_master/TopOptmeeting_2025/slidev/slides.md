@@ -13,11 +13,8 @@ themeConfig:
 fonts:
   sans: Neo Sans Pro
 hideInToc: true
-info: |
-  <h2>ICTAM 2024</h2>
-  <h5 class="font-light">Markus T. Holm</h5>
 lineNumbers: true
-title: "ICTAM 2024"
+title: "TopOpt 2025"
 titleTemplate: '%s • Markus Tandrup Holm'
 mdc: true 
 zoom: 0.8
@@ -30,10 +27,17 @@ transition: fade-out
 .slidev-page {
   background-color:rgb(230, 230, 230) !important; /* Use !important to override theme */
 }
+:deep(.slidev-layout-two-cols-header) {
+  align-items: flex-start !important;
+}
+.addBorder {
+    /* Thickness, Style, and Color */
+    border: 1px solid #000000;
+  }
 </style>
 
 
-<h1> Maximizing Failure Resistance of Architected Materials </h1>
+<h1> Failure resistance optimization of periodic lattice structures </h1>
 
 <h4><u> Markus Tandrup Holm</u>, Konstantinos Poulios, Niels Aage and Ole Sigmund </h4>
 
@@ -41,7 +45,7 @@ transition: fade-out
 
 <p> </p> 
 
-<h3> ICTAM 2024 </h3>
+<h3> TopOpt 2025 </h3>
 
 <img style="position:fixed; top:50px; left:50px; width:80px;" src="/media/DTU/DTU_logo_black.png" v-bind="props" />
 
