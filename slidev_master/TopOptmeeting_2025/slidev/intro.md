@@ -83,14 +83,14 @@
 <div class="grid grid-cols-2 gap-4">
   <div>
     Tailor stiffness 
-    <img src="/media/ashby/g23.png" style="width:600px"/>
-    <p style="position:relative; top:-10px; right:0px; text-align:right"> <sup>1)</sup> </p>  
+    <img src="/media/ashby/g23.png" style="width:600px; filter:invert(0.05)"/>
+    <p style="position:relative; top:-35px; right:10px; text-align:right"> <sup>1)</sup> </p>  
   </div>
   
   <div>
     Tailor, and improve fracture toughness?
-    <img src="/media/ashby/image1-3.png" style="width:390px"/>
-    <p style="position:relative; top:-10px; right:40px; text-align:right"> <sup>2)</sup> </p>  
+    <img src="/media/ashby/image1-3.png" style="width:390px; filter:invert(0.03) "/>
+    <p style="position:relative; top:-35px; right:50px; text-align:right"> <sup>2)</sup> </p>  
   </div>
 
 </div>
@@ -116,7 +116,7 @@ layout: two-cols-header
 }
 </style>
 
-## Fracture toughness in lattice materials
+## **Analysis** -- Fracture toughness in lattice materials
 
 ::left::
 
@@ -137,4 +137,215 @@ $$ K_{\text{Ic}} = \sigma_c \sqrt{a} = \lambda \sigma_0 \sqrt{a} $$
 
 ::right::
 
-<img src="/media/figures/fracture_toughness.svg" style="position:relative; width:300px; bottom:20px; left:50px"/>
+<div v-click.hide>
+
+<img src="/media/figures/fracture_toughness_1.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
+
+</div>
+
+<div v-after>
+
+<img src="/media/figures/fracture_toughness_2.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
+
+</div>
+
+---
+layout: two-cols-header
+dragPos:
+  square1: 373,151,73,54
+  square2: 226,158,73,53
+---
+
+## **Results** -- State of the art
+
+::left::
+
+<v-click>
+
+<img src="/media/litterature/fleckRhoKIC.png" style="position:relative; width:75%; top:10px; left:100px; filter: invert(.05)"/>
+
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="379,174,-34,-31"/>
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="267,163,45,-30"/>
+
+<img v-drag="'square1'" src="/media/results/triangular_2x2.svg" class="addBorder">
+<img v-drag="'square2'" src="/media/results/kagome_2x2.svg" class="addBorder">
+
+<p style="position:fixed; top:285px; left:455px; font-weight: lighter"> <sup>1)</sup> </p>
+
+</v-click>
+
+<v-click>
+
+<img src="/media/litterature/demiregularResultsFull.png" style="position:relative; width:100%; top:20px; left:50px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:5px; left:510px; font-weight: lighter"> <sup>2)</sup> </p>
+
+</v-click>
+
+::right::
+
+<v-click at="+0">
+
+<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:75%; top:10px; left:80px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:10px; right:100px; font-weight: lighter"> <sup>2)</sup> </p>
+
+</v-click>
+
+<Footnotes>
+  <div v-click="1">
+  <Footnote :number=1> Fleck and Qiu (2007) </Footnote>
+  </div v-click>
+  
+  <div v-click="2">
+  <Footnote :number=2> Omidi and St-Pierre (2023) </Footnote>
+  </div v-click>
+
+</Footnotes> 
+
+---
+layout: two-cols-header
+---
+
+## **Results** -- Normalizing with $\sqrt{l}$
+
+<p> </p>
+
+<div class="grid grid-cols-2 gap-4">
+
+  <v-click>
+
+  <div>  
+    <img src="/media/results/resNorm_tri.svg" style="width:325px; margin: auto"/>
+  </div>
+  
+  <div>
+    <img src="/media/results/resNorm_kag.svg" style="width:325px; margin: auto"/>
+  </div>
+
+  <div style="position:fixed; right:30px; top:135px">
+    <img src="/media/results/colorBarsig_0_15.svg" style="width:50px"/>
+  </div>
+
+  </v-click>
+
+  <v-clicks>
+
+  <div>
+    <img src="/media/results/resNorm_kagII.svg" style="width:325px; margin: auto"/>
+  </div>
+
+  <div>
+    <img src="/media/results/resNorm_kagIIopt.svg" style="width:325px; margin: auto;"/>
+  </div>  
+
+  </v-clicks> 
+
+</div>
+
+<v-click>
+
+$$ \footnotesize \textbf{Table 1: } \lambda_{\max}/\sqrt{l} $$
+
+
+<style>
+.centered-up {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: -20px;
+}
+</style>
+
+<div>
+  <img src="/media/results/lamMaxNorm.png" class="centered-up" style="width:300px; filter: invert(0.10)"/>
+</div>
+
+</v-click>
+  
+---
+layout: two-cols-header
+---
+
+## **Results** -- Without normalization
+
+<p> </p>
+
+<div class="grid grid-cols-2 gap-4">
+
+  <div>  
+    <img src="/media/results/res_tri.svg" style="width:325px; margin: auto"/>
+  </div>
+  
+  <div style="position:fixed; right:30px; top:135px">
+    <img src="/media/results/colorBarsig_0_15.svg" style="width:50px"/>
+  </div>
+
+  <v-clicks>
+
+  <div>
+    <img src="/media/results/res_kag-1.svg" style="width:325px; margin: auto"/>
+  </div>
+
+  <div>
+    <img src="/media/results/res_kag.svg" style="width:325px; margin: auto"/>
+  </div>
+
+  <div>
+    <img src="/media/results/res_kag+1.svg" style="width:325px; margin: auto;"/>
+  </div>  
+
+  </v-clicks> 
+
+</div>
+
+<v-click>
+
+$$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
+
+
+<style>
+.centered-up {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: -20px;
+}
+</style>
+
+<div>
+  <img src="/media/results/lamMax.png" class="centered-up" style="width:475px; filter: invert(0.10)"/>
+</div>
+
+</v-click>
+  
+
+---
+
+
+<style>
+.centered-up {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 0px;
+}
+</style>
+
+# **Conclusions**
+
+- The problem when optimizing:
+<div>
+  <img src="/media/figures/unitCell_Nbc234.svg" class="centered-up" style="width:750px; filter: invert(0.0)"/>
+</div>
+
+<p> </p>
+
+<v-click>
+
+- **Future work**:
+  - Attempting optimization on fine meshes
+  - Relaxing isotropy
+  - ... suggestions?
+</v-click>

@@ -32,7 +32,7 @@ transition: fade-out
 }
 .addBorder {
     /* Thickness, Style, and Color */
-    border: 1px solid #000000;
+    border: 1.5px solid rgb(240, 160, 90);
   }
 </style>
 
@@ -45,7 +45,7 @@ transition: fade-out
 
 <p> </p> 
 
-<h3> TopOpt 2025 </h3>
+<h3> TopOpt Meeting 2025 </h3>
 
 <img style="position:fixed; top:50px; left:50px; width:80px;" src="/media/DTU/DTU_logo_black.png" v-bind="props" />
 
