@@ -37,7 +37,7 @@ transition: fade-out
 </style>
 
 
-<h1> Failure resistance optimization of periodic lattice structures </h1>
+<h1> Length scales in fracture toughness of architected lattice materials </h1>
 
 <h4><u> Markus Tandrup Holm</u>, Konstantinos Poulios, Niels Aage and Ole Sigmund </h4>
 

@@ -1,4 +1,4 @@
-## **Architected materials** -- Applications
+## **Architected lattice materials** -- Applications
 <p> </p>
 
 
@@ -15,15 +15,13 @@
 
 </div v-click>
 
-<div v-click="1">
 <img src="/media/MetalAm/ssm-slm-inconel-sparrow.png" style="position:fixed; bottom:80px; left:-40px; width:325px"/>
 <p style="position:fixed; bottom:50px; left:40px; text-align:left; font-weight: lighter"> <sup>1)</sup> </p> 
-</div v-click>
 
-<div v-click="1"> 
+
 <img src="/media/MetalAm/ESAbracket.png" style="position:fixed; bottom:90px; right:350px; width:375px"/>
 <p style="position:fixed; bottom:100px; right:615px; text-align:left; font-weight: lighter"> <sup>2)</sup> </p>  
-</div v-click> 
+ 
 
 <div v-click="2">
 <img src="/media/MetalAm/part1.png" style="position:fixed; bottom:100px; left:590px; width:800px"/>
@@ -76,7 +74,7 @@
 
 ---
 
-## **Architected materials** -- Properties
+## **Architected lattice materials** -- Properties
 <p> </p>
   
 
@@ -120,11 +118,11 @@ layout: two-cols-header
 
 ::left::
 
-- Fracture toughness $:=$ Critical value of the Mode I stress intensity factor
+- Fracture toughness $:=$ Critical value of the stress intensity factor (SIF)
 
 <v-clicks>
 
-- Mode I stress-intensity factor for an infinite plate: 
+- Mode I SIF for an infinite homogenous (solid) plate: 
 $$K_{\text{I}} = \sigma_0 \sqrt{\pi a}$$
 
 - So, $K_\text{I} = O(\sigma_0 \sqrt{a})$ and we define
@@ -148,6 +146,9 @@ $$ K_{\text{Ic}} = \sigma_c \sqrt{a} = \lambda \sigma_0 \sqrt{a} $$
 <img src="/media/figures/fracture_toughness_2.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
 
 </div>
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
 
 ---
 layout: two-cols-header
@@ -200,6 +201,9 @@ dragPos:
   </div v-click>
 
 </Footnotes> 
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
 
 ---
 layout: two-cols-header
@@ -261,12 +265,15 @@ $$ \footnotesize \textbf{Table 1: } \lambda_{\max}/\sqrt{l} $$
 </div>
 
 </v-click>
-  
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
 ---
 layout: two-cols-header
 ---
 
-## **Results** -- Without normalization
+## **Results** -- Without normalization ($\footnotesize W/L=24$)
 
 <p> </p>
 
@@ -314,11 +321,13 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
 </style>
 
 <div>
-  <img src="/media/results/lamMax.png" class="centered-up" style="width:475px; filter: invert(0.10)"/>
+  <img src="/media/results/lamMax.png" class="centered-up" style="width:450px; filter: invert(0.10)"/>
 </div>
 
 </v-click>
-  
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
 
 ---
 
@@ -333,19 +342,81 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
 }
 </style>
 
-# **Conclusions**
+# **Conclusion**
 
-- The problem when optimizing:
+- Fracture toughness should be normalized with unit cell size, $L$, instead of beam length, $l$
+- The problem when optimizing: $a/l$ vs. $a/L$
 <div>
-  <img src="/media/figures/unitCell_Nbc234.svg" class="centered-up" style="width:750px; filter: invert(0.0)"/>
+  <img src="/media/figures/unitCell_Nbc234.svg" class="centered-up" style="width:650px; filter: invert(0.0)"/>
 </div>
 
 <p> </p>
 
 <v-click>
 
-- **Future work**:
-  - Attempting optimization on fine meshes
+### **Future work**
+  - Optimization for fixed $a/L$ with different $W/L$
   - Relaxing isotropy
-  - ... suggestions?
 </v-click>
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+---
+layout: two-cols-header
+---
+## **Methods** -- Fracture toughness maximization
+
+<p> </p>
+
+::left::
+
+$$
+\begin{align*}
+\max_{\mathbf{x}=\{x_w, \mathbf{x}_{\text{uc}}\}} \quad & \lambda(\mathbf{x}) = \frac{\sigma_c}{\sigma_{\max}(\mathbf{x})} && \text{Load scaling factor}\\[2pt]
+\text{s.t.}       \quad & \mathbf{K}(\mathbf{x}) \mathbf{u}(\mathbf{x}) = \mathbf{f}, && \text{Static equilibrium} \\[2pt]
+                  \quad & g_{\text{iso}}(\mathbf{C}^H(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
+                  \quad & g_{E}(\mathbf{C}^H(\mathbf{x})) \leq 0, && 
+                  \text{Unit cell stiffness} \\[2pt]
+                  \quad & \frac{V(\mathbf{x})}{V_0 \, f_V} - 1 \leq 0, && \text{Volume constraint}  \\[2pt]
+                  \quad & \mathbf{0} \leq \mathbf{x}  \leq  \mathbf{1}
+\end{align*}
+$$
+
+
+<div v-click> 
+
+$$g_{E}(\mathbf{C}^H(\mathbf{x})) = 1 - \frac{E^H(\mathbf{x})}{E_{\text{HS}} \, f_E}$$  
+
+$$\begin{align*}
+&E_{\text{HS}} = \frac{1}{3}E_s w \bar{\rho}_{uc} && \text{HS-bound beam structrure} \\
+&f_E  && \text{Young's modulus fraction}
+\end{align*}$$
+
+</div v-click> 
+
+
+::right::
+
+
+<div v-click> 
+
+<img src="/media/figures/interpolation.svg" style="position:relative; width:600px; bottom:0px; right:-20px; filter: invert(.05)"/>
+
+</div v-click> 
+
+ <!-- $$\max_{\mathbf{x}}   \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{G_x} \lambda^{(0)} M_{\text{nd}}(\mathbf{x}) $$ -->
+
+<br>
+
+<div v-click> 
+
+- Penalize with $M_{\text{nd}}$ to obtain black-white:
+$$ \max_{\mathbf{x}\in \mathbb{R}^{N_e^\text{uc}}} \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{G_x} \lambda^{(0)} M_{\text{nd}}(\mathbf{x})  $$
+
+</div v-click> 
+
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+---
