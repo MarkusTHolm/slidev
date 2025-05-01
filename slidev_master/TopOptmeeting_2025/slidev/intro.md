@@ -94,8 +94,8 @@
 </div>
 
 <Footnotes separator>
-  <Footnote :number=1> Jenett et al. (2017) </Footnote>
-  <Footnote :number=2> Inspired by Tankasala et al. (2015) </Footnote>
+  <Footnote :number=1> Inspired by Jenett et al. (2017) </Footnote>
+  <Footnote :number=2> Tankasala, Deshpande and Fleck (2015) </Footnote>
 </Footnotes> 
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
@@ -137,13 +137,13 @@ $$ K_{\text{Ic}} = \sigma_c \sqrt{a} = \lambda \sigma_0 \sqrt{a} $$
 
 <div v-click.hide>
 
-<img src="/media/figures/fracture_toughness_1.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
+<img src="/media/figures/Kfield_01.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
 
 </div>
 
 <div v-after>
 
-<img src="/media/figures/fracture_toughness_2.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
+<img src="/media/figures/Kfield_02.svg" style="position:fixed; width:425px; bottom:50px; right:25px"/>
 
 </div>
 
@@ -342,7 +342,7 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
 }
 </style>
 
-# **Conclusion**
+# **Conclusions**
 
 - Fracture toughness should be normalized with unit cell size, $L$, instead of beam length, $l$
 - The problem when optimizing: $a/l$ vs. $a/L$
@@ -412,7 +412,7 @@ $$\begin{align*}
 <div v-click> 
 
 - Penalize with $M_{\text{nd}}$ to obtain black-white:
-$$ \max_{\mathbf{x}\in \mathbb{R}^{N_e^\text{uc}}} \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{G_x} \lambda^{(0)} M_{\text{nd}}(\mathbf{x})  $$
+$$ \max_{\mathbf{x}=\{x_w, \mathbf{x}_{\text{uc}}\}} \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{M_{nd}} \lambda^{(0)} M_{\text{nd}}(\mathbf{x})  $$
 
 </div v-click> 
 

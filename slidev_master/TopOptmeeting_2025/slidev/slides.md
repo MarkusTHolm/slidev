@@ -4,7 +4,7 @@ coverAuthor: mtaho@dtu.dk
 # coverBackgroundUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3
 # coverBackgroundSource: unsplash
 # coverBackgroundSourceUrl: https://unsplash.com/photos/8qEB0fTe9Vw
-coverDate: 26/08/2024
+coverDate: 2025/03/14
 exportFilename: dev-environment-as-code
 themeConfig:
   paginationX: r
