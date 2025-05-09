@@ -4,7 +4,7 @@ coverAuthor: mtaho@dtu.dk
 # coverBackgroundUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3
 # coverBackgroundSource: unsplash
 # coverBackgroundSourceUrl: https://unsplash.com/photos/8qEB0fTe9Vw
-coverDate: 2025/03/14
+coverDate: 2025/05/20
 exportFilename: dev-environment-as-code
 themeConfig:
   paginationX: r
@@ -14,12 +14,12 @@ fonts:
   sans: Neo Sans Pro
 hideInToc: true
 lineNumbers: true
-title: "TopOpt 2025"
+title: "WCSMO 2025"
 titleTemplate: '%s • Markus Tandrup Holm'
 mdc: true 
 zoom: 0.8
 layout: cover
-transition: fade-out
+transition: slide-left
 ---
 
 
@@ -37,7 +37,7 @@ transition: fade-out
 </style>
 
 
-<h1> Length scales in fracture toughness of architected lattice materials </h1>
+<h1> Failure resistance optimization of periodic lattice structures </h1>
 
 <h4><u> Markus Tandrup Holm</u>, Konstantinos Poulios, Niels Aage and Ole Sigmund </h4>
 
@@ -45,7 +45,7 @@ transition: fade-out
 
 <p> </p> 
 
-<h3> TopOpt Meeting 2025 </h3>
+<h3> The 16th World Congress of Structural and Multidisciplinary Optimization (WCSMO-16) </h3>
 
 <img style="position:fixed; top:50px; left:50px; width:80px;" src="/media/DTU/DTU_logo_black.png" v-bind="props" />
 

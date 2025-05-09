@@ -114,24 +114,33 @@ layout: two-cols-header
 }
 </style>
 
-## **Analysis** -- Fracture toughness in lattice materials
+## **Background** -- Fracture toughness in lattice materials
 
 ::left::
 
 - Fracture toughness $:=$ Critical value of the stress intensity factor (SIF)
 
-<v-clicks>
 
-- Mode I SIF for an infinite homogenous (solid) plate: 
-$$K_{\text{I}} = \sigma_0 \sqrt{\pi a}$$
+<v-click>
 
-- So, $K_\text{I} = O(\sigma_0 \sqrt{a})$ and we define
+- Asymptotic $K$-displacement field for Mode I: 
+$$
+u_1 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\cos\frac{\theta}{2}\right] 
+$$ 
+$$
+u_2 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\sin\frac{\theta}{2}\right]
+$$
+</v-click>
 
-$$ K_{\text{Ic}} = \sigma_c \sqrt{a} = \lambda \sigma_0 \sqrt{a} $$
+<v-click>
+So, we find the fracture toughness as:
 
-- Where <div class="boxed-equation"> $\lambda = \dfrac{\sigma_f}{\sigma_{\max}}$ </div> is the load scaling factor
+$$ K_{\text{Ic}} = K_{\text{I}} \lambda $$
 
-</v-clicks>
+- Where <div class="boxed-equation"> $\lambda = \dfrac{\sigma_\text{f}}{\sigma_{\max}}$ </div> is the load scaling factor
+
+</v-click>
+
 
 ::right::
 
@@ -149,36 +158,51 @@ $$ K_{\text{Ic}} = \sigma_c \sqrt{a} = \lambda \sigma_0 \sqrt{a} $$
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
-
 ---
 layout: two-cols-header
 dragPos:
-  square1: 373,151,73,54
-  square2: 226,158,73,53
+  square1: 382,202,73,54
+  square2: 229,121,73,53
 ---
 
-## **Results** -- State of the art
+<style>
+.boxed-equation2 {
+  border: 2px solid #e47323; 
+  padding: 5px; 
+  border-radius: 5px; 
+  display: inline-block;
+  margin: 10px 0;
+}
+</style>
 
-::left::
+## **Background** -- State of the art
 
 <v-click>
 
+#### $\hspace{50mm}$ <div class="boxed-equation2"> $K_{\text{Ic}} = D \bar{\rho}^d  \sigma_{\text{f}} \sqrt{l}$ </div>
+
+</v-click>
+
+::left::
+
+<v-after>
+
 <img src="/media/litterature/fleckRhoKIC.png" style="position:relative; width:75%; top:10px; left:100px; filter: invert(.05)"/>
 
-<v-drag-arrow width=1 color=rgb(240,160,90) pos="379,174,-34,-31"/>
-<v-drag-arrow width=1 color=rgb(240,160,90) pos="267,163,45,-30"/>
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="387,225,-34,-31"/>
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="267,163,45,20"/>
 
 <img v-drag="'square1'" src="/media/results/triangular_2x2.svg" class="addBorder">
 <img v-drag="'square2'" src="/media/results/kagome_2x2.svg" class="addBorder">
 
-<p style="position:fixed; top:285px; left:455px; font-weight: lighter"> <sup>1)</sup> </p>
+<p style="position:fixed; top:335px; left:455px; font-weight: bold"> <sup>1)</sup> </p>
 
-</v-click>
+</v-after>
 
 <v-click>
 
-<img src="/media/litterature/demiregularResultsFull.png" style="position:relative; width:100%; top:20px; left:50px; filter: invert(.05)"/>
-<p style="position:fixed; bottom:5px; left:510px; font-weight: lighter"> <sup>2)</sup> </p>
+<img src="/media/litterature/demiregularResultsFull.png" style="position:relative; width:80%; top:20px; left:100px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:-10px; left:480px; font-weight: bold"> <sup>2)</sup> </p>
 
 </v-click>
 
@@ -186,8 +210,8 @@ dragPos:
 
 <v-click at="+0">
 
-<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:75%; top:10px; left:80px; filter: invert(.05)"/>
-<p style="position:fixed; bottom:10px; right:100px; font-weight: lighter"> <sup>2)</sup> </p>
+<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:65%; top:10px; left:80px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:15px; right:135px; font-weight: bold"> <sup>2)</sup> </p>
 
 </v-click>
 
@@ -209,45 +233,16 @@ dragPos:
 layout: two-cols-header
 ---
 
-## **Results** -- Normalizing with $\sqrt{l}$
+## **Results** -- Normalizing with $\sqrt{l}$ or $\sqrt{L}$
 
 <p> </p>
 
-<div class="grid grid-cols-2 gap-4">
 
-  <v-click>
+<img src="/media/results/pseudo_kagome.png" style="position:relative; width:60%; top:10px; left:60px; filter: invert(.05)"/>
 
-  <div>  
-    <img src="/media/results/resNorm_tri.svg" style="width:325px; margin: auto"/>
-  </div>
-  
-  <div>
-    <img src="/media/results/resNorm_kag.svg" style="width:325px; margin: auto"/>
-  </div>
-
-  <div style="position:fixed; right:30px; top:135px">
-    <img src="/media/results/colorBarsig_0_15.svg" style="width:50px"/>
-  </div>
-
-  </v-click>
-
-  <v-clicks>
-
-  <div>
-    <img src="/media/results/resNorm_kagII.svg" style="width:325px; margin: auto"/>
-  </div>
-
-  <div>
-    <img src="/media/results/resNorm_kagIIopt.svg" style="width:325px; margin: auto;"/>
-  </div>  
-
-  </v-clicks> 
-
-</div>
+<img src="/media/figures/structures.svg" style="position:fixed; width:20%; top:90px; right:90px; filter: invert(.05)"/>
 
 <v-click>
-
-$$ \footnotesize \textbf{Table 1: } \lambda_{\max}/\sqrt{l} $$
 
 
 <style>
@@ -256,12 +251,13 @@ $$ \footnotesize \textbf{Table 1: } \lambda_{\max}/\sqrt{l} $$
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: -20px;
+  left: -90px;
+  top: 30px;
 }
 </style>
 
 <div>
-  <img src="/media/results/lamMaxNorm.png" class="centered-up" style="width:300px; filter: invert(0.10)"/>
+  <img src="/media/results/pseudo_kagome_table.svg" class="centered-up" style="width:300px; filter: invert(0.10)"/>
 </div>
 
 </v-click>
@@ -273,41 +269,14 @@ $$ \footnotesize \textbf{Table 1: } \lambda_{\max}/\sqrt{l} $$
 layout: two-cols-header
 ---
 
-## **Results** -- Without normalization ($\footnotesize W/L=24$)
+## **Results** -- Normalizing with $\sqrt{l}$ or $\sqrt{L}$
 
 <p> </p>
 
-<div class="grid grid-cols-2 gap-4">
 
-  <div>  
-    <img src="/media/results/res_tri.svg" style="width:325px; margin: auto"/>
-  </div>
-  
-  <div style="position:fixed; right:30px; top:135px">
-    <img src="/media/results/colorBarsig_0_15.svg" style="width:50px"/>
-  </div>
-
-  <v-clicks>
-
-  <div>
-    <img src="/media/results/res_kag-1.svg" style="width:325px; margin: auto"/>
-  </div>
-
-  <div>
-    <img src="/media/results/res_kag.svg" style="width:325px; margin: auto"/>
-  </div>
-
-  <div>
-    <img src="/media/results/res_kag+1.svg" style="width:325px; margin: auto;"/>
-  </div>  
-
-  </v-clicks> 
-
-</div>
+<img src="/media/results/pseudo_kagome_all.png" style="position:relative; width:100%; top:10px; left:0px; filter: invert(.05)"/>
 
 <v-click>
-
-$$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
 
 
 <style>
@@ -316,12 +285,13 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: -20px;
+
+  top: 30px;
 }
 </style>
 
 <div>
-  <img src="/media/results/lamMax.png" class="centered-up" style="width:450px; filter: invert(0.10)"/>
+  <img src="/media/results/pseudo_kagome_table_all.svg" class="centered-up" style="width:600px; filter: invert(0.10)"/>
 </div>
 
 </v-click>
@@ -330,6 +300,144 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
 
 
 ---
+layout: two-cols-header
+---
+
+## **Results** -- Comparison of structures
+
+<p> </p>
+
+::left:: 
+
+- #### **Scaling laws**:
+
+$$ E = B \bar{\rho}^b E_s  $$
+$$ K_{\text{Ic}} = M \bar{\rho}^d \sigma_\text{f} \sqrt{L}  $$
+
+- Critical energy release rate: $G_{\text{c}} = (1 - \nu^2) \dfrac{K_{\text{Ic}}^2}{E}$
+
+$$ \frac{G_\text{c} E_ \text{s}}{\sigma_\text{f}^2 L} = (1 - \nu^2) \frac{M^2}{B} \bar{\rho}^{2d-b}   $$
+
+<img src="/media/results/comparison_table.svg" style="position:relative; width:90%; top:0px; left:40px; filter: invert(.05)"/>
+
+::right::
+
+<img src="/media/results/K_Ic_plot_all.svg" style="position:relative; width:75%; top:-30px; left:80px; filter: invert(.05)"/>
+
+<img src="/media/results/G_c_plot_all.svg" style="position:relative; width:75%; top:-25px; left:80px; filter: invert(.05)"/>
+
+<v-click>
+
+
+</v-click>
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+
+---
+layout: two-cols-header
+---
+## **Methods** -- Fracture toughness maximization
+
+<p> </p>
+
+::left::
+
+$$
+\begin{align*}
+\max_{\mathbf{x}=\{x_t, \mathbf{x}_{\text{uc}}\}} \quad & \mathcal{J}= \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) - c \, M_{\text{nd}}(\mathbf{x}) \\[2pt] % && \text{Load scaling factor}\\[2pt]
+\text{s.t.}       \quad & \mathbf{K}(\mathbf{x}) \mathbf{u}(\mathbf{x}) = \mathbf{f}, && \text{Static equilibrium} \\[2pt]
+                  \quad & g_{\text{vol}} = \bar{\rho}/\bar{\rho}_0 - 1 \leq 0, && \text{Ressource constraint}  \\[2pt]
+                  \quad & g_{\text{iso}}(\mathbf{C}^H(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
+                  \quad & g_{E} = 1 -\frac{E(\mathbf{x})}{E_{\text{HS}}f_E} \leq 0, && 
+                  \text{Unit cell stiffness} \\[2pt]
+
+                  \quad & \mathbf{0} \leq \mathbf{x}  \leq  \mathbf{1}
+\end{align*}
+$$
+
+Load scaling factor: $\quad \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) = \dfrac{\sigma_\text{f}}{\sigma_{\max}(\mathbf{x})}$
+
+Measure of non-discreteness: $M_{\text{nd}}(\mathbf{x}) = \frac{4}{N_e} \sum_{e=1}^{N_e} x_e(1-x_e)$
+
+
+::right::
+
+<img src="/media/figures/homogenization_new.svg" style="position:fixed; width:350px; top:80px; right:0px; filter: invert(0)"/>
+<img src="/media/figures/Kfield_optimization.svg" style="position:fixed; width:175px; bottom:10px; right:100px; filter: invert(0.02)"/>
+
+ <!-- $$\max_{\mathbf{x}}   \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{G_x} \lambda^{(0)} M_{\text{nd}}(\mathbf{x}) $$ -->
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+---
+layout: two-cols-header
+---
+## **Results** -- Fracture toughness maximization
+
+<p> </p> 
+
+- Results shown for a **uniform** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.5$
+
+<img src="/media/results/res_none_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
+
+<div style="height: 390px;"></div>
+
+- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
+
+
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+---
+layout: two-cols-header
+---
+## **Results** -- Fracture toughness maximization
+
+<p> </p> 
+
+- Results shown for a 10% **triangular** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.5$
+
+<img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
+
+
+<div style="height: 390px;"></div>
+
+- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
+
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+---
+layout: two-cols-header
+---
+## **Results** -- Fracture toughness maximization
+
+<p> </p> 
+
+- Results shown for a 10% **triangular** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.01$
+
+<img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.01_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
+
+- Results shown for a 10% **Kagome** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.10$
+
+<img src="/media/results/res_kagome-indices-Nbc-4-htype-0_fE_0.1_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
+
+<div style="height: 0px;"></div>
+
+::right::
+
+- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
+
+
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+<!-- 
 
 
 <style>
@@ -359,64 +467,4 @@ $$ \footnotesize \textbf{Table 2: } \lambda_{\max} $$
   - Relaxing isotropy
 </v-click>
 
-<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
-
-
----
-layout: two-cols-header
----
-## **Methods** -- Fracture toughness maximization
-
-<p> </p>
-
-::left::
-
-$$
-\begin{align*}
-\max_{\mathbf{x}=\{x_w, \mathbf{x}_{\text{uc}}\}} \quad & \lambda(\mathbf{x}) = \frac{\sigma_c}{\sigma_{\max}(\mathbf{x})} && \text{Load scaling factor}\\[2pt]
-\text{s.t.}       \quad & \mathbf{K}(\mathbf{x}) \mathbf{u}(\mathbf{x}) = \mathbf{f}, && \text{Static equilibrium} \\[2pt]
-                  \quad & g_{\text{iso}}(\mathbf{C}^H(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
-                  \quad & g_{E}(\mathbf{C}^H(\mathbf{x})) \leq 0, && 
-                  \text{Unit cell stiffness} \\[2pt]
-                  \quad & \frac{V(\mathbf{x})}{V_0 \, f_V} - 1 \leq 0, && \text{Volume constraint}  \\[2pt]
-                  \quad & \mathbf{0} \leq \mathbf{x}  \leq  \mathbf{1}
-\end{align*}
-$$
-
-
-<div v-click> 
-
-$$g_{E}(\mathbf{C}^H(\mathbf{x})) = 1 - \frac{E^H(\mathbf{x})}{E_{\text{HS}} \, f_E}$$  
-
-$$\begin{align*}
-&E_{\text{HS}} = \frac{1}{3}E_s w \bar{\rho}_{uc} && \text{HS-bound beam structrure} \\
-&f_E  && \text{Young's modulus fraction}
-\end{align*}$$
-
-</div v-click> 
-
-
-::right::
-
-
-<div v-click> 
-
-<img src="/media/figures/interpolation.svg" style="position:relative; width:600px; bottom:0px; right:-20px; filter: invert(.05)"/>
-
-</div v-click> 
-
- <!-- $$\max_{\mathbf{x}}   \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{G_x} \lambda^{(0)} M_{\text{nd}}(\mathbf{x}) $$ -->
-
-<br>
-
-<div v-click> 
-
-- Penalize with $M_{\text{nd}}$ to obtain black-white:
-$$ \max_{\mathbf{x}=\{x_w, \mathbf{x}_{\text{uc}}\}} \quad \mathcal{J}(\mathbf{x})=\lambda(\mathbf{x}) - c_{M_{nd}} \lambda^{(0)} M_{\text{nd}}(\mathbf{x})  $$
-
-</div v-click> 
-
-
-<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
-
----
+<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" /> -->
