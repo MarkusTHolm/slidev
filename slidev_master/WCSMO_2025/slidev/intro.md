@@ -3,8 +3,8 @@
 
 
 
-- Enabled by additive manufacturing
-- Metals and polymers
+- Low density materials 
+- Enabled by additive manufacturing using both metals and polymers
 
 - <span v-mark.orange.v-mark="1"> Aerospace, </span> <span v-mark.orange.v-mark="2"> orthopedic implants, </span> <span v-mark.orange.v-mark="3"> sporting gear </span>, etc.
 
@@ -162,7 +162,7 @@ $$ K_{\text{Ic}} = K_{\text{I}} \lambda $$
 layout: two-cols-header
 dragPos:
   square1: 382,202,73,54
-  square2: 229,121,73,53
+  square2: 128,81,146,108
 ---
 
 <style>
@@ -177,11 +177,7 @@ dragPos:
 
 ## **Background** -- State of the art
 
-<v-click>
-
-#### $\hspace{50mm}$ <div class="boxed-equation2"> $K_{\text{Ic}} = D \bar{\rho}^d  \sigma_{\text{f}} \sqrt{l}$ </div>
-
-</v-click>
+#### $\hspace{40mm}$ <div class="boxed-equation2"> $K_{\text{Ic}} = D \bar{\rho}^d  \sigma_{\text{f}} \sqrt{l}$ </div>
 
 ::left::
 
@@ -210,17 +206,15 @@ dragPos:
 
 <v-click at="+0">
 
-<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:65%; top:10px; left:80px; filter: invert(.05)"/>
-<p style="position:fixed; bottom:15px; right:135px; font-weight: bold"> <sup>2)</sup> </p>
+<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:85%; top:-100px; left:80px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:15px; right: 50px; font-weight: bold"> <sup>2)</sup> </p>
 
 </v-click>
 
 <Footnotes>
-  <div v-click="1">
   <Footnote :number=1> Fleck and Qiu (2007) </Footnote>
-  </div v-click>
   
-  <div v-click="2">
+  <div v-click="1">
   <Footnote :number=2> Omidi and St-Pierre (2023) </Footnote>
   </div v-click>
 
@@ -228,15 +222,13 @@ dragPos:
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
-
 ---
 layout: two-cols-header
 ---
 
-## **Results** -- Normalizing with $\sqrt{l}$ or $\sqrt{L}$
+## **Analysis** -- Normalizing with $\sqrt{l}$ or $\sqrt{L}$
 
-<p> </p>
-
+- Results shown for $\bar{\rho}$ = 15 %
 
 <img src="/media/results/pseudo_kagome.png" style="position:relative; width:60%; top:10px; left:60px; filter: invert(.05)"/>
 
@@ -348,8 +340,8 @@ $$
 \begin{align*}
 \max_{\mathbf{x}=\{x_t, \mathbf{x}_{\text{uc}}\}} \quad & \mathcal{J}= \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) - c \, M_{\text{nd}}(\mathbf{x}) \\[2pt] % && \text{Load scaling factor}\\[2pt]
 \text{s.t.}       \quad & \mathbf{K}(\mathbf{x}) \mathbf{u}(\mathbf{x}) = \mathbf{f}, && \text{Static equilibrium} \\[2pt]
-                  \quad & g_{\text{vol}} = \bar{\rho}/\bar{\rho}_0 - 1 \leq 0, && \text{Ressource constraint}  \\[2pt]
-                  \quad & g_{\text{iso}}(\mathbf{C}^H(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
+                  \quad & g_{\text{vol}} = \bar{\rho}(\mathbf{x})/\bar{\rho}^* - 1 \leq 0, && \text{Ressource constraint}  \\[2pt]
+                  \quad & g_{\text{iso}}(\mathbf{C}(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
                   \quad & g_{E} = 1 -\frac{E(\mathbf{x})}{E_{\text{HS}}f_E} \leq 0, && 
                   \text{Unit cell stiffness} \\[2pt]
 
@@ -357,9 +349,11 @@ $$
 \end{align*}
 $$
 
-Load scaling factor: $\quad \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) = \dfrac{\sigma_\text{f}}{\sigma_{\max}(\mathbf{x})}$
+- Global beam thickness: $\quad t(x_t) = t_{\min} + x_t(t_{\max} - t_{\min})$
 
-Measure of non-discreteness: $M_{\text{nd}}(\mathbf{x}) = \frac{4}{N_e} \sum_{e=1}^{N_e} x_e(1-x_e)$
+- Load scaling factor: $\quad \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) = \dfrac{\sigma_\text{f}}{\sigma_{\max}(\mathbf{x},\mathbf{u}(\mathbf{x}))}$
+
+- Measure of non-discreteness: $M_{\text{nd}}(\mathbf{x}) = \frac{4}{N_e} \sum_{e=1}^{N_e} x_e(1-x_e)$
 
 
 ::right::
@@ -379,7 +373,7 @@ layout: two-cols-header
 
 <p> </p> 
 
-- Results shown for a **uniform** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.5$
+- Results shown for a **uniform** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.5$
 
 <img src="/media/results/res_none_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
 
@@ -399,7 +393,7 @@ layout: two-cols-header
 
 <p> </p> 
 
-- Results shown for a 10% **triangular** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.5$
+- Results shown for a 10% **triangular** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.5$
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
 
@@ -419,11 +413,11 @@ layout: two-cols-header
 
 <p> </p> 
 
-- Results shown for a 10% **triangular** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.01$
+- Results shown for a 10% **triangular** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.01$
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.01_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
 
-- Results shown for a 10% **Kagome** initial guess with $\bar{\rho} = 15 \%$, $f_\text{E}=0.10$
+- Results shown for a 10% **Kagome** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.10$
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype-0_fE_0.1_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
 

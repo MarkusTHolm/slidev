@@ -1,6 +1,6 @@
 ---
 theme: academic
-coverAuthor: mtaho@dtu.dk
+coverAuthor: '*mtaho@dtu.dk'
 # coverBackgroundUrl: https://images.unsplash.com/photo-1607799279861-4dd421887fb3
 # coverBackgroundSource: unsplash
 # coverBackgroundSourceUrl: https://unsplash.com/photos/8qEB0fTe9Vw
@@ -39,9 +39,11 @@ transition: slide-left
 
 <h1> Failure resistance optimization of periodic lattice structures </h1>
 
-<h4><u> Markus Tandrup Holm</u>, Konstantinos Poulios, Niels Aage and Ole Sigmund </h4>
+<h4><u> Markus Tandrup Holm*</u>, Konstantinos Poulios, Niels Aage and Ole Sigmund </h4>
 
 <h5> Department of Civil and Mechanical Engineering, Solid Mechanics, Technical University of Denmark</h5>
+
+<h3> DTU TopOpt </h3>
 
 <p> </p> 
 
