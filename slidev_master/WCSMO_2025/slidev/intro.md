@@ -3,7 +3,7 @@
 
 
 
-- Low density materials 
+- High performance low density materials 
 - Enabled by additive manufacturing using both metals and polymers
 
 - <span v-mark.orange.v-mark="1"> Aerospace, </span> <span v-mark.orange.v-mark="2"> orthopedic implants, </span> <span v-mark.orange.v-mark="3"> sporting gear </span>, etc.
@@ -81,13 +81,13 @@
 <div class="grid grid-cols-2 gap-4">
   <div>
     Tailor stiffness 
-    <img src="/media/ashby/g23.png" style="width:600px; filter:invert(0.05)"/>
+    <img src="/media/litterature/Ashby_E.png" style="width:100%; filter:invert(0.03)"/>
     <p style="position:relative; top:-35px; right:10px; text-align:right"> <sup>1)</sup> </p>  
   </div>
   
   <div>
     Tailor, and improve fracture toughness?
-    <img src="/media/ashby/image1-3.png" style="width:390px; filter:invert(0.03) "/>
+    <img src="/media/ashby/image1-3.png" style="width:357px; filter:invert(0.03) "/>
     <p style="position:relative; top:-35px; right:50px; text-align:right"> <sup>2)</sup> </p>  
   </div>
 
@@ -104,6 +104,24 @@
 layout: two-cols-header
 ---
 
+
+<!--
+<v-click>
+
+ - Asymptotic $K$-displacement field for Mode I: 
+$$
+\textcolor{green}{
+u_1 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\cos\frac{\theta}{2}\right] }
+$$ 
+$$
+\textcolor{green}{
+u_2 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\sin\frac{\theta}{2}\right] }
+$$
+
+
+$$ \kappa = 
+</v-click> -->
+
 <style>
 .boxed-equation {
   border: 2px solid #e47323; 
@@ -112,57 +130,70 @@ layout: two-cols-header
   display: inline-block; 
   margin: 10px 0;
 }
+.transparent-box {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 0px;
+  width: 430px;
+  height: 240px;
+}
 </style>
 
 ## **Background** -- Fracture toughness in lattice materials
 
 ::left::
 
-- Fracture toughness $:=$ Critical value of the stress intensity factor (SIF)
+
+<div v-click>
+
+####  **Fracture toughness: $K_c$**
+-  Critical value the stress intensity factor $K$
 
 
-<v-click>
+- For crack in an infinitely wide plate subjected to a remote tensile stress:
+ $$K_{\text{I}} = \sigma \sqrt{\pi a}$$
 
-- Asymptotic $K$-displacement field for Mode I: 
-$$
-u_1 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\cos\frac{\theta}{2}\right] 
-$$ 
-$$
-u_2 = \frac{K_\text{I}}{2\sqrt{2\pi}G} r^{1/2} \left[(\kappa - \cos\theta)\sin\frac{\theta}{2}\right]
-$$
-</v-click>
+- LEFM: $\quad K_{\text{I}} = K_{\text{Ic}} \quad$ gives $\quad \sigma_\text{c} = K_{\text{Ic}}/\sqrt{\pi a}$
 
-<v-click>
-So, we find the fracture toughness as:
+</div>
+
+<div v-click='2'>
+
+<div style="position:fixed; top:75px; left:50px;background: rgba(255, 255, 255, 0.5);" class="transparent-box"> </div>
+
+- When applying the $K_{\text{I}}$-displacement field we find the mode I fracture toughness as:
 
 $$ K_{\text{Ic}} = K_{\text{I}} \lambda $$
 
 - Where <div class="boxed-equation"> $\lambda = \dfrac{\sigma_\text{f}}{\sigma_{\max}}$ </div> is the load scaling factor
 
-</v-click>
+</div>
 
+
+<div style="height: 0px;"></div>
 
 ::right::
 
-<div v-click.hide>
+<div v-click='0'>
+<img src="/media/litterature/infinite.svg" style="position:fixed; width:310px; bottom:50px; right:100px; filter: invert(.05)"/>
 
-<img src="/media/figures/Kfield_01.svg" style="position:fixed; width:425px; bottom:50px; right:25px; filter: invert(.05)"/>
+</div v-click>
 
-</div>
 
-<div v-after>
+<div v-click='2'>
 
-<img src="/media/figures/Kfield_02.svg" style="position:fixed; width:425px; bottom:50px; right:25px; filter: invert(.05)"/>
+<img src="/media/figures/Kfield_01.svg" style="position:fixed; width:475px; bottom:50px; right:10px; filter: invert(.05)"/>
 
-</div>
+</div v-click>
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
 
 ---
 layout: two-cols-header
 dragPos:
-  square1: 382,202,73,54
-  square2: 128,81,146,108
+  square1: 275,251,73,54
+  square2: 147,84,146,108
 ---
 
 <style>
@@ -175,41 +206,43 @@ dragPos:
 }
 </style>
 
+
+
 ## **Background** -- State of the art
 
 #### $\hspace{40mm}$ <div class="boxed-equation2"> $K_{\text{Ic}} = D \bar{\rho}^d  \sigma_{\text{f}} \sqrt{l}$ </div>
 
 ::left::
 
-<v-after>
+<div v-click.hide>
 
-<img src="/media/litterature/fleckRhoKIC.png" style="position:relative; width:75%; top:10px; left:100px; filter: invert(.05)"/>
+<img src="/media/litterature/fleckRhoKIC.png" style="position:relative; width:100%; top:10px; left:100px; filter: invert(.05)"/>
 
-<v-drag-arrow width=1 color=rgb(240,160,90) pos="387,225,-34,-31"/>
-<v-drag-arrow width=1 color=rgb(240,160,90) pos="267,163,45,20"/>
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="341,269,62,-54"/>
+<v-drag-arrow width=1 color=rgb(240,160,90) pos="289,182,45,20"/>
 
 <img v-drag="'square1'" src="/media/results/triangular_2x2.svg" class="addBorder">
 <img v-drag="'square2'" src="/media/results/kagome_2x2.svg" class="addBorder">
 
-<p style="position:fixed; top:335px; left:455px; font-weight: bold"> <sup>1)</sup> </p>
+<p style="position:fixed; top:410px; left:550px; font-weight: bold"> <sup>1)</sup> </p>
 
-</v-after>
+</div>
 
-<v-click>
+<div v-click="1">
 
-<img src="/media/litterature/demiregularResultsFull.png" style="position:relative; width:80%; top:20px; left:100px; filter: invert(.05)"/>
-<p style="position:fixed; bottom:-10px; left:480px; font-weight: bold"> <sup>2)</sup> </p>
+<img src="/media/litterature/demiregularResultsFull.png" style="position:fixed; width:60%; top:200px; left:5px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:70px; left:550px; font-weight: bold"> <sup>2)</sup> </p>
 
-</v-click>
+</div>
 
 ::right::
 
-<v-click at="+0">
+<div v-click="'1'">
 
-<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:85%; top:-100px; left:80px; filter: invert(.05)"/>
-<p style="position:fixed; bottom:15px; right: 50px; font-weight: bold"> <sup>2)</sup> </p>
+<img src="/media/litterature/demiregularStructures.png" style="position:relative; width:85%; top:-100px; left:110px; filter: invert(.05)"/>
+<p style="position:fixed; bottom:10px; right: 20px; font-weight: bold"> <sup>2)</sup> </p>
 
-</v-click>
+</div>
 
 <Footnotes>
   <Footnote :number=1> Fleck and Qiu (2007) </Footnote>
@@ -227,6 +260,7 @@ layout: two-cols-header
 ---
 
 ## **Analysis** -- Normalizing with $\sqrt{l}$ or $\sqrt{L}$
+
 
 - Results shown for $\bar{\rho}$ = 15 %
 
@@ -248,11 +282,27 @@ layout: two-cols-header
 }
 </style>
 
+<div
+  v-motion
+  :click-1="{ x: 190, y:63 }"
+  :click-2="{ x: 190, y:86 }"
+>
+  <img v-drag="[0,0,310,25,0]" class="addBorder">
+</div>
+
+
 <div>
   <img src="/media/results/pseudo_kagome_table.svg" class="centered-up" style="width:300px; filter: invert(0.10)"/>
 </div>
 
 </v-click>
+
+<v-click> 
+
+$\textcolor{white}{ }$
+
+</v-click>
+
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
@@ -266,9 +316,25 @@ layout: two-cols-header
 <p> </p>
 
 
-<img src="/media/results/pseudo_kagome_all.png" style="position:relative; width:100%; top:10px; left:0px; filter: invert(.05)"/>
+<div
+  v-motion
+  :enter="{ x: 520, y: 0 }"
+  :click-1="{ x: 700, y: 0 }"
+>
+  <img v-drag="[0,0,180,310,0]" class="addBorder">
+</div>
 
-<v-click>
+
+<div
+  v-motion
+  :enter="{ x: 515, y:325 }"
+  :click-1="{ x: 625, y:325 }"
+>
+  <img v-drag="[0,0,110,97,0]" class="addBorder">
+</div>
+
+
+<img src="/media/results/pseudo_kagome_all.png" style="position:relative; width:100%; top:10px; left:0px; filter: invert(.05)"/>
 
 
 <style>
@@ -286,7 +352,12 @@ layout: two-cols-header
   <img src="/media/results/pseudo_kagome_table_all.svg" class="centered-up" style="width:600px; filter: invert(0.10)"/>
 </div>
 
+<v-click> 
+
+$\textcolor{white}{ }$
+
 </v-click>
+
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
@@ -330,15 +401,17 @@ $$ \frac{G_\text{c} E_ \text{s}}{\sigma_\text{f}^2 L} = (1 - \nu^2) \frac{M^2}{B
 ---
 layout: two-cols-header
 ---
+
 ## **Methods** -- Fracture toughness maximization
 
 <p> </p>
 
 ::left::
 
-$$
-\begin{align*}
-\max_{\mathbf{x}=\{x_t, \mathbf{x}_{\text{uc}}\}} \quad & \mathcal{J}= \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) - c \, M_{\text{nd}}(\mathbf{x}) \\[2pt] % && \text{Load scaling factor}\\[2pt]
+
+$${1|1,2|3|4|5|all}
+\begin{aligned}
+\max_{\mathbf{x}=\{x_t, \mathbf{x}_{\text{uc}}\}} \quad & \mathcal{J}= \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) - c \, M_{\text{nd}}(\mathbf{x}) && \\[2pt] % && \text{Load scaling factor}\\[2pt]
 \text{s.t.}       \quad & \mathbf{K}(\mathbf{x}) \mathbf{u}(\mathbf{x}) = \mathbf{f}, && \text{Static equilibrium} \\[2pt]
                   \quad & g_{\text{vol}} = \bar{\rho}(\mathbf{x})/\bar{\rho}^* - 1 \leq 0, && \text{Ressource constraint}  \\[2pt]
                   \quad & g_{\text{iso}}(\mathbf{C}(\mathbf{x})) \leq 0, && \text{Isotropic unit cell} \\[2pt]
@@ -346,12 +419,12 @@ $$
                   \text{Unit cell stiffness} \\[2pt]
 
                   \quad & \mathbf{0} \leq \mathbf{x}  \leq  \mathbf{1}
-\end{align*}
+\end{aligned}
 $$
 
-- Global beam thickness: $\quad t(x_t) = t_{\min} + x_t(t_{\max} - t_{\min})$
-
 - Load scaling factor: $\quad \lambda(\mathbf{x},\mathbf{u}(\mathbf{x})) = \dfrac{\sigma_\text{f}}{\sigma_{\max}(\mathbf{x},\mathbf{u}(\mathbf{x}))}$
+
+- Global beam thickness: $\quad t(x_t) = t_{\min} + x_t(t_{\max} - t_{\min})$
 
 - Measure of non-discreteness: $M_{\text{nd}}(\mathbf{x}) = \frac{4}{N_e} \sum_{e=1}^{N_e} x_e(1-x_e)$
 
@@ -373,38 +446,59 @@ layout: two-cols-header
 
 <p> </p> 
 
-- Results shown for a **uniform** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.5$
-
-<img src="/media/results/res_none_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
-
-<div style="height: 390px;"></div>
-
-- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
-
-
-
-<img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
-
-
----
-layout: two-cols-header
----
-## **Results** -- Fracture toughness maximization
-
-<p> </p> 
+<style>
+.transparent-box {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 0px;
+  width: 360px;
+  height: 335px;
+}
+</style>
 
 - Results shown for a 10% **triangular** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.5$
 
-<img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.5_01.png" style="position:fixed; width:960px; top:130px; left:10px; filter: invert(0.025)"/>
+<img src="/media/results/res_none_fE_0.5_01.png" style="position:fixed; width:350px; top:130px; left:60px; filter: invert(0.025)"/>
+
+<div v-click='+2'>
 
 
-<div style="height: 390px;"></div>
+<div style="position:fixed; top:125px; left:55px; background: rgba(240, 240, 240, 0.5);" class="transparent-box">  </div>
 
-- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
 
+<img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.5_01.png" style="position:fixed; width:350px; top:130px; left:420px; filter: invert(0.025)"/>
+
+
+<p style="position:fixed; width:200px; bottom:125px; right:-20px; font-size:10pt"> <b> Triangular </b> initial guess exaggerated <b> 5x </b> </p>
+
+<img src="/media/results/initialGuess_x5.png" style="position:fixed; width:180px; bottom:10px; right:10px; filter: invert(0.025)"/>
+
+</div>
+
+<div
+  v-motion
+  :enter="{ x: 0, y:25 }"
+  :click-1="{ x: 178, y:25 }"
+  :click-2="{ x: 360, y:25 }"
+  :click-3="{ x: 538, y:25 }"
+>
+  <img v-drag="[0,0,180,310,0]" class="addBorder">
+</div>
+
+<div style="height: 330px;"></div>
+
+- Best performing (triangular) structure:   <div class="boxed-equation2">$\lambda_{\max}=208$</div>
+- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.548$ mm
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
+<v-clicks> 
+
+- $\textcolor{white}{ }$
+- $\textcolor{white}{ }$
+- $\textcolor{white}{ }$
+
+</v-clicks>
 
 ---
 layout: two-cols-header
@@ -412,23 +506,27 @@ layout: two-cols-header
 ## **Results** -- Fracture toughness maximization
 
 <p> </p> 
+
+
 
 - Results shown for a 10% **triangular** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.01$
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.01_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
 
+
+<v-click>
+
 - Results shown for a 10% **Kagome** initial guess with $\bar{\rho}^* = 15 \%$, $N_{\text{bc}}=4$, $f_\text{E}=0.10$
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype-0_fE_0.1_01.png" style="position:relative; width:475px; top:0px; left:200px; filter: invert(0.025)"/>
 
+</v-click>
+
 <div style="height: 0px;"></div>
-
-::right::
-
-- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
 
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
 
 
 <!-- 
