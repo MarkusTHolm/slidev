@@ -264,9 +264,9 @@ layout: two-cols-header
 
 - Results shown for $\bar{\rho}$ = 15 %
 
-<img src="/media/results/pseudo_kagome.png" style="position:relative; width:60%; top:10px; left:60px; filter: invert(.05)"/>
+<img src="/media/results/pseudo_kagome.png" style="position:relative; width:60%; top:10px; left:50px; filter: invert(.05)"/>
 
-<img src="/media/figures/structures.svg" style="position:fixed; width:20%; top:90px; right:90px; filter: invert(.05)"/>
+<!-- <img src="/media/figures/structures.svg" style="position:fixed; width:20%; top:90px; right:90px; filter: invert(.05)"/> -->
 
 <v-click>
 
@@ -294,6 +294,13 @@ layout: two-cols-header
 <div>
   <img src="/media/results/pseudo_kagome_table.svg" class="centered-up" style="width:300px; filter: invert(0.10)"/>
 </div>
+
+<figure style="position:fixed; top: 175px; right:0px; display: table; filter:invert(0.90)" >
+  <SlidevVideo muted autoreset autoplay loop style="position:relative; top:0px; left:0px; width:350px">
+    <source src="/media/animations/pseudo_kagome.mp4" type="video/mp4">
+  </SlidevVideo> 
+</figure> 
+
 
 </v-click>
 
