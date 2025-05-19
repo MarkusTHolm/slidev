@@ -134,7 +134,7 @@ $$ \kappa =
   background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   padding: 0px;
-  width: 430px;
+  width: 440px;
   height: 240px;
 }
 </style>
@@ -144,28 +144,29 @@ $$ \kappa =
 ::left::
 
 
-<div v-click>
-
 ####  **Fracture toughness: $K_c$**
--  Critical value the stress intensity factor $K$
+-  Critical value of the stress intensity factor $K$
 
 
-- For crack in an infinitely wide plate subjected to a remote tensile stress:
+- For a crack in an infinitely wide plate subjected to a remote tensile stress:
  $$K_{\text{I}} = \sigma \sqrt{\pi a}$$
 
 - LEFM: $\quad K_{\text{I}} = K_{\text{Ic}} \quad$ gives $\quad \sigma_\text{c} = K_{\text{Ic}}/\sqrt{\pi a}$
 
-</div>
 
-<div v-click='2'>
+<div style="position:fixed; top:75px; left:50px;background: rgba(0, 0, 0, 0.10);" class="transparent-box"> </div>
+
+
+<div v-click='1'>
 
 <div style="position:fixed; top:75px; left:50px;background: rgba(255, 255, 255, 0.5);" class="transparent-box"> </div>
 
-- When applying the $K_{\text{I}}$-displacement field we find the mode I fracture toughness as:
-
+- When applying the $\color{green} K_{\text{I}}\text{-displacement field}$ we find the mode I fracture toughness as:
 $$ K_{\text{Ic}} = K_{\text{I}} \lambda $$
-
 - Where <div class="boxed-equation"> $\lambda = \dfrac{\sigma_\text{f}}{\sigma_{\max}}$ </div> is the load scaling factor
+
+##### $\footnotesize \sigma_\text{f}: \text{Material failure stress}, \sigma_\text{max}: \text{Max. beam tensile stress}$
+
 
 </div>
 
@@ -175,18 +176,23 @@ $$ K_{\text{Ic}} = K_{\text{I}} \lambda $$
 ::right::
 
 <div v-click='0'>
-<img src="/media/litterature/infinite.svg" style="position:fixed; width:310px; bottom:50px; right:100px; filter: invert(.05)"/>
+<img src="/media/litterature/infinite.svg" style="position:fixed; width:310px; bottom:50px; right:100px; filter: invert(.05)"/> <p style="position:fixed; bottom:30px; right: 110px; font-weight: bold"> <sup>1)</sup> </p>
 
 </div v-click>
 
 
-<div v-click='2'>
+<div v-click='1'>
 
 <img src="/media/figures/Kfield_01.svg" style="position:fixed; width:475px; bottom:50px; right:10px; filter: invert(.05)"/>
 
 </div v-click>
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
+
+
+<Footnotes>
+  <Footnote :number=1> Anderson, T.L (2017) </Footnote>
+</Footnotes> 
 
 
 ---
@@ -268,6 +274,13 @@ layout: two-cols-header
 
 <!-- <img src="/media/figures/structures.svg" style="position:fixed; width:20%; top:90px; right:90px; filter: invert(.05)"/> -->
 
+
+<figure style="position:fixed; top: 175px; right:0px; display: table; filter:invert(0.90)" >
+  <SlidevVideo muted autoreset autoplay loop style="position:relative; top:0px; left:0px; width:350px">
+    <source src="/media/animations/pseudo_kagome.mp4" type="video/mp4">
+  </SlidevVideo> 
+</figure> 
+
 <v-click>
 
 
@@ -284,22 +297,16 @@ layout: two-cols-header
 
 <div
   v-motion
-  :click-1="{ x: 190, y:63 }"
-  :click-2="{ x: 190, y:86 }"
+  :click-1="{ x: 166, y:71 }"
+  :click-2="{ x: 166, y:97 }"
 >
-  <img v-drag="[0,0,310,25,0]" class="addBorder">
+  <img v-drag="[0,0,357,27,0]" class="addBorder">
 </div>
 
 
 <div>
-  <img src="/media/results/pseudo_kagome_table.svg" class="centered-up" style="width:300px; filter: invert(0.10)"/>
+  <img src="/media/results/pseudo_kagome_table.svg" class="centered-up" style="width:350px; filter: invert(0.10)"/>
 </div>
-
-<figure style="position:fixed; top: 175px; right:0px; display: table; filter:invert(0.90)" >
-  <SlidevVideo muted autoreset autoplay loop style="position:relative; top:0px; left:0px; width:350px">
-    <source src="/media/animations/pseudo_kagome.mp4" type="video/mp4">
-  </SlidevVideo> 
-</figure> 
 
 
 </v-click>
@@ -467,11 +474,13 @@ layout: two-cols-header
 
 <img src="/media/results/res_none_fE_0.5_01.png" style="position:fixed; width:350px; top:130px; left:60px; filter: invert(0.025)"/>
 
+<div v-click="['+2', '+2']">
+
+<div style="position:fixed; top:125px; left:55px; background: rgba(240, 240, 240, 0.5);" class="transparent-box"> </div>
+
+</div>
+
 <div v-click='+2'>
-
-
-<div style="position:fixed; top:125px; left:55px; background: rgba(240, 240, 240, 0.5);" class="transparent-box">  </div>
-
 
 <img src="/media/results/res_kagome-indices-Nbc-4-htype--2_fE_0.5_01.png" style="position:fixed; width:350px; top:130px; left:420px; filter: invert(0.025)"/>
 
@@ -495,17 +504,18 @@ layout: two-cols-header
 <div style="height: 330px;"></div>
 
 - Best performing (triangular) structure:   <div class="boxed-equation2">$\lambda_{\max}=208$</div>
-- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.548$ mm
+- Note, the triangular and Kagome structures satisfies $\bar{\rho} = 15 \%$ for $t=0.541$ mm
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
-<v-clicks> 
+<!-- <v-clicks> 
 
 - $\textcolor{white}{ }$
 - $\textcolor{white}{ }$
 - $\textcolor{white}{ }$
+- $\textcolor{white}{ }$
 
-</v-clicks>
+</v-clicks> -->
 
 ---
 layout: two-cols-header
@@ -534,6 +544,46 @@ layout: two-cols-header
 
 <img style="position:fixed; top:10px; right:50px; width:200px;" src="/media/DTU/Villum_black.png" v-bind="props" />
 
+---
+layout: two-cols-header
+---
+### **Results** -- Fracture toughness maximization benchmark -- $\bar{\rho}=15 \%$
+
+
+
+$\lambda_{\max} = 206, \ t = 0.541$ [mm] $\hspace{8mm} \lambda_{\max} = 160, \ t = 0.541$ [mm] $\hspace{8mm} \lambda_{\max} = 184, \ t = 0.541$ [mm]
+
+<div class="grid grid-cols-3 gap-0">
+  <div>
+    <img src="/media/results/tri_design.png" style="position:relative; width:90%; top:0px; left:0px; filter: invert(0)"/>
+    <img src="/media/results/tri_stress.png" style="position:relative; width:90%; top:10px; left:0px; filter: invert(0.)"/>
+  </div>
+  <div>
+    <img src="/media/results/kag_design.png" style="position:relative; width:90%; top:0px; left:0px; filter: invert(0)"/>
+    <img src="/media/results/kag_stress.png" style="position:relative; width:90%; top:10px; left:0px; filter: invert(0.)"/>
+  </div>
+  <div>
+    <img src="/media/results/opt_design.png" style="position:relative; width:90%; top:0px; left:0px; filter: invert(0)"/>
+    <img src="/media/results/opt_stress.png" style="position:relative; width:90%; top:10px; left:0px; filter: invert(0.)"/>
+  </div>
+</div>
+
+
+---
+layout: two-cols-header
+---
+#### **Results** -- Fracture toughness maximization optimization history -- $\bar{\rho}=15 \%$
+
+<div class="grid grid-cols-2 gap-0.5">
+  <div>
+    <img src="/media/results/designHistory_uni.png" style="position:relative; width:110%; max-width: 120%; top:0px; left:-50px; filter: invert(0)"/>
+    <img src="/media/results/designHistory_uni_design.png" style="position:relative; width:110%; max-width: 120%; top:0px; left:-50px; filter: invert(0.)"/>
+  </div>
+  <div>
+    <img src="/media/results/designHistory_tri.png" style="position:relative; width:110%; max-width: 120%; top:0px; left:0px; filter: invert(0)"/>
+    <img src="/media/results/designHistory_tri_design.png" style="position:relative; width:110%; max-width: 120%; top:0px; left:0px; filter: invert(0)"/>
+  </div>
+</div>
 
 
 <!-- 
